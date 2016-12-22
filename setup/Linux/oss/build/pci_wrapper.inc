@@ -71,8 +71,10 @@ osspci_probe (struct pci_dev *pcidev, const struct pci_device_id *pciid)
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(3,8,0)
  static int __devexit
-#else
+#elif LINUX_VERSION_CODE < KERNEL_VERSION(4,6,0)
  static int
+#else
+ void
 #endif
 osspci_remove (struct pci_dev *pcidev)
 {
@@ -88,11 +90,19 @@ osspci_remove (struct pci_dev *pcidev)
 	pci_disable_device (dev_map[i].pcidev);
 	osdev_delete (osdev);
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4,6,0)
 	return 0;
+#else
+	return;
+#endif
       }
 
   printk (KERN_ALERT DRIVER_NICK ": Can't find the PCI device to detach\n");
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4,6,0)
   return -EIO;
+#else
+  return;
+#endif
 }
 
 void
