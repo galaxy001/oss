@@ -1953,8 +1953,13 @@ oss_fp_save (short *envbuf, unsigned int flags[])
     }
   else
     {
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
       flags[1] = read_cr4 ();
       write_cr4 (flags[1] | 0x600);	/* Set OSFXSR & OSXMMEXCEPT */
+#else
+      flags[1] = __read_cr4 ();
+      __write_cr4 (flags[1] | 0x600);	/* Set OSFXSR & OSXMMEXCEPT */
+#endif
       FX_SAVE (envbuf);
       asm ("fninit");
       asm ("fwait");
@@ -1974,7 +1979,11 @@ oss_fp_restore (short *envbuf, unsigned int flags[])
   else
     {
       FX_RESTORE (envbuf);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
       write_cr4 (flags[1]);	/* Restore cr4 */
+#else
+      __write_cr4 (flags[1]);	/* Restore cr4 */
+#endif
     }
   write_cr0 (flags[0]);		/* Restore cr0 */
 }

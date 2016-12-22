@@ -36,7 +36,7 @@ fi
 # Use Linux24 as the OS name for Linux 2.4.x
 if test "$OS " = "Linux "
 then
-  if test "`uname -r|sed 's/2.//'|sed 's/\..*//'` " = "4 "
+  if test "`uname -r | cut -d '.' -f 1-2` " = "2.4 "
   then
 	OS=Linux24
   fi
