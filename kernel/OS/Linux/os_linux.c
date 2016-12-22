@@ -630,7 +630,8 @@ oss_cdev_ioctl (oss_inode_handle_t * inode, oss_file_handle_t * file,
   int dev = d;
   oss_cdev_t *cdev;
   int err;
-  int localbuf[64];		/* 256 bytes is the largest frequently used ioctl size */
+  /* Remove localbuf (workaround for CONFIG_HARDENED_USERCOPY from kernel 4.8) */
+  /* int localbuf[64]; */		/* 256 bytes is the largest frequently used ioctl size */
 
   int len = 0;
   int alloced = 0;
@@ -656,14 +657,18 @@ oss_cdev_ioctl (oss_inode_handle_t * inode, oss_file_handle_t * file,
 	  return OSS_EFAULT;
 	}
 
+      /* Always use dynamic kernel memory allocation (instead of static localbuf)
+        (workaround for CONFIG_HARDENED_USERCOPY from kernel 4.8) */
+      ptr = KERNEL_MALLOC (len);
+      alloced = 1;
       /* Use statically allocated buffer for short arguments */
-      if (len > sizeof (localbuf))
+      /*if (len > sizeof (localbuf))
 	{
 	  ptr = KERNEL_MALLOC (len);
 	  alloced = 1;
 	}
       else
-	ptr = localbuf;
+	ptr = localbuf;*/
 
       if (ptr == NULL || arg == 0)
 	{
@@ -700,8 +705,8 @@ oss_cdev_ioctl (oss_inode_handle_t * inode, oss_file_handle_t * file,
 
   /* Free the local buffer unless it was statically allocated */
   if (ptr != NULL && alloced)
-    if (len > sizeof (localbuf))
-      KERNEL_FREE (ptr);
+//    if (len > sizeof (localbuf))
+    KERNEL_FREE (ptr);
 
   return ((err < 0) ? err : 0);
 
