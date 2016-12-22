@@ -109,7 +109,7 @@ struct _oss_device_t
 /* System wall timer access */
 #define GET_JIFFIES()	oss_get_jiffies()
 
-extern inline unsigned int
+__attribute__ ((gnu_inline)) extern inline unsigned int
 __inb (unsigned short port)
 {
   unsigned int _v;
@@ -117,7 +117,7 @@ __inb (unsigned short port)
 			"0" (0));
   return _v;
 }
-extern inline unsigned int
+__attribute__ ((gnu_inline)) extern inline unsigned int
 __inw (unsigned short port)
 {
   unsigned int _v;
@@ -125,7 +125,7 @@ __inw (unsigned short port)
 			"0" (0));
   return _v;
 }
-extern inline unsigned int
+__attribute__ ((gnu_inline)) extern inline unsigned int
 __inl (unsigned short port)
 {
   unsigned int _v;
@@ -133,19 +133,19 @@ __inl (unsigned short port)
   return _v;
 }
 
-extern inline void
+__attribute__ ((gnu_inline)) extern inline unsigned int
 __outb (unsigned char value, unsigned short port)
 {
   __asm__ __volatile__ ("out" "b" " %" "b" "0,%" "w" "1"::"a" (value),
 			"d" (port));
 }
-extern inline void
+__attribute__ ((gnu_inline)) extern inline unsigned int
 __outw (unsigned short value, unsigned short port)
 {
   __asm__ __volatile__ ("out" "w" " %" "w" "0,%" "w" "1"::"a" (value),
 			"d" (port));
 }
-extern inline void
+__attribute__ ((gnu_inline)) extern inline unsigned int
 __outl (unsigned int value, unsigned short port)
 {
   __asm__ __volatile__ ("out" "l" " %" "0,%" "w" "1"::"a" (value),
