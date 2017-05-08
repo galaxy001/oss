@@ -133,19 +133,19 @@ __inl (unsigned short port)
   return _v;
 }
 
-__attribute__ ((gnu_inline)) extern inline unsigned int
+__attribute__ ((gnu_inline)) extern inline void
 __outb (unsigned char value, unsigned short port)
 {
   __asm__ __volatile__ ("out" "b" " %" "b" "0,%" "w" "1"::"a" (value),
 			"d" (port));
 }
-__attribute__ ((gnu_inline)) extern inline unsigned int
+__attribute__ ((gnu_inline)) extern inline void
 __outw (unsigned short value, unsigned short port)
 {
   __asm__ __volatile__ ("out" "w" " %" "w" "0,%" "w" "1"::"a" (value),
 			"d" (port));
 }
-__attribute__ ((gnu_inline)) extern inline unsigned int
+__attribute__ ((gnu_inline)) extern inline void
 __outl (unsigned int value, unsigned short port)
 {
   __asm__ __volatile__ ("out" "l" " %" "0,%" "w" "1"::"a" (value),

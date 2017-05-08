@@ -51,7 +51,7 @@ add_kernel_flags (FILE * f)
 {
 # if defined(__x86_64__)
   fprintf (f,
-	     "CFLAGS += -O3 -fno-common  -mcmodel=kernel -mno-red-zone  -fno-asynchronous-unwind-tables -ffreestanding%s\n", fnsp);
+	     "CFLAGS += -O3 -fno-common -mcmodel=kernel  -mno-red-zone -fno-pie  -fno-asynchronous-unwind-tables -ffreestanding%s\n", fnsp);
 # else
 #   ifndef __arm__
   if (getenv ("NO_REGPARM") == NULL)

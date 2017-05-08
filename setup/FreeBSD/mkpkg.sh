@@ -10,7 +10,7 @@ PKGNAME=oss-freebsd$KERNEL-$ARCH-$OSSVER-$BUILDID
 
 (cd $PROTODIR; find . -type f -print  > $SETUPDIR/pkg-plist)
 
-if test  $KERNEL = "10" 
+if test  $KERNEL = "11" 
 then
 (cd $PROTODIR; 
 echo "name:  oss-freebsd$KERNEL-$ARCH" >> +MANIFEST
