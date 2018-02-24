@@ -491,6 +491,9 @@ typedef struct tmout_desc
   int timestamp;
   void (*func) (void *);
   void *arg;
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,15,0)
+  int data;
+#endif
 
   struct timer_list timer;
 } tmout_desc_t;
@@ -503,8 +506,16 @@ tmout_desc_t tmouts[MAX_TMOUTS] = { {0} };
 int timeout_random = 0x12123400;
 
 void
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,15,0)
+oss_timer_callback (struct timer_list *t)
+#else
 oss_timer_callback (unsigned long id)
+#endif
 {
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,15,0)
+  tmout_desc_t *priv = container_of(t, typeof(*priv), timer);
+  int id = priv->data;
+#endif
   tmout_desc_t *tmout;
   int ix;
   void *arg;
@@ -563,10 +574,17 @@ oss_timeout (void (*func) (void *), void *arg, unsigned long long ticks)
   tmout->arg = arg;
   tmout->timestamp = id | (timeout_random & ~0xff);
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,15,0)
+  tmout->data = id | (timeout_random & ~0xff);
+  timer_setup (&tmout->timer, oss_timer_callback, 0);
+#else
   init_timer (&tmout->timer);
+#endif
   tmout->timer.expires = jiffies + ticks;
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4,15,0)
   tmout->timer.data = id | (timeout_random & ~0xff);
   tmout->timer.function = oss_timer_callback;
+#endif
   add_timer (&tmout->timer);
 
   return id | (timeout_random & ~0xff);
