@@ -1,7 +1,17 @@
 /*
  * Purpose: Local input buffer to application export routine for vmix (int)
  */
-#define COPYING4 Copyright (C) Hannu Savolainen and Dev Mazumdar 2006-2007. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 vmix_mixer_t *mixer = portc->mixer;
 vmix_engine_t *eng = &mixer->record_engine;

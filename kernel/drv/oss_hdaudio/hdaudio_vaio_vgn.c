@@ -1,4 +1,14 @@
-#define COPYING Copyright (C) 4Front Technologies 2007. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 /* Codec index is 0 */
 /* Codec vendor 0804:73dc */
 /* HD codec revision 1.0 (2.1) (0x00100201) */

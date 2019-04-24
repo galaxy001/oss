@@ -1,4 +1,14 @@
-#define COPYING Copyright (C) Hannu Savolainen and Dev Mazumdar 2000-2014. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -1170,7 +1180,7 @@ printf("Symlink %s -> %s\n", source, target);
       fprintf (f, "%s.so:\t$(LIBDIR)/%s.so\n\n", name, name);
 
       fprintf (f, "$(LIBDIR)/%s.so:\t$(OBJECTS)\n", name);
-#if defined(linux)
+#if defined(linux) || defined(__FreeBSD__)
       /* gcc -shared works much better than ld on Linux */
       fprintf (f,
 	       "\t$(CC) $(LDFLAGS) %s -o $(LIBDIR)/%s.so $(OBJECTS)\n",

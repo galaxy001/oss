@@ -1,4 +1,14 @@
-#define COPYING11 Copyright (C) Hannu Savolainen and Dev Mazumdar 2000-2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 static const unsigned char inbuf[] = {
   0x52, 0x49, 0x46, 0x46, 0x26, 0x38, 0x05, 0x00, 0x57, 0x41, 0x56, 0x45,
   0x66, 0x6d, 0x74, 0x20,

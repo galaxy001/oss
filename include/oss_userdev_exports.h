@@ -16,7 +16,17 @@
 
 #ifndef OSS_USERDEV_EXPORTS_H
 #define OSS_USERDEV_EXPORTS_H
-#define COPYING42 Copyright (C) 4Front Technologies 2008. Released under the BSD license.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 typedef struct
 {

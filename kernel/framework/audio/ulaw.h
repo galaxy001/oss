@@ -1,7 +1,17 @@
 /*
  * Purpose: u-Law to and from 8 bit unsigned linear audio conversion tables
  */
-#define COPYING3 Copyright (C) Hannu Savolainen and Dev Mazumdar 1996-2005. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 static unsigned char ulaw_dsp[] = {
   3, 7, 11, 15, 19, 23, 27, 31,
   35, 39, 43, 47, 51, 55, 59, 63,

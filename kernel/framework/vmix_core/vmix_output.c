@@ -4,7 +4,17 @@
  * This file contains the actual mixing and resampling engine for output.
  * The actual algorithms are implemented in outexport.inc and playmix.inc.
  */
-#define COPYING Copyright (C) Hannu Savolainen and Dev Mazumdar 2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 #define SWAP_SUPPORT
 #include <oss_config.h>

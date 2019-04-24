@@ -1,7 +1,17 @@
 /*
  * Purpose: Definitions of HD audio codec functions, structures and macros
  */
-#define COPYING101 Copyright (C) Hannu Savolainen and Dev Mazumdar 2004-2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 #ifndef HDAUDIO_CODEC_H
 #define HDAUDIO_CODEC_H
 

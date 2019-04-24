@@ -2,7 +2,17 @@
  * Purpose: Filter coefficient tables for GRC3 sample rate converter
  */
 
-#define COPYING3 Copyright (C) Hannu Savolainen and Dev Mazumdar 1996-2005. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 static int32_t filter_data[8193] = {
   0, -5008, -10058, -15150, -20285, -25462, -30682, -35945, -41250,

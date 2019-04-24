@@ -3,7 +3,17 @@
  *
  * All drivers for PCI devices should included this file.
  */
-#define COPYING25 Copyright (C) Hannu Savolainen and Dev Mazumdar 1996-2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 #ifndef OSS_PCI_H
 #define OSS_PCI_H
 #define OSS_HAVE_PCI

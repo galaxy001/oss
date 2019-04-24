@@ -20,7 +20,17 @@
  * distribution for the license terms and conditions.
  *
  */
-#define COPYING © D. Casey Tucker, 2010. Licensed to 4Front Technologies.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 #include <math.h>
 #include <stdlib.h>

@@ -5,7 +5,17 @@
  * have been compiled against them. Full rebuild of OSS will be required if 
  * this file is changed.
  */
-#define COPYING13 Copyright (C) Hannu Savolainen and Dev Mazumdar 2000-2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 #include <sys/types.h>
 #if 0 /* __FreeBSD_version >= 700031 */
@@ -82,7 +92,10 @@ typedef int ddi_iblock_cookie_t;
 extern void oss_udelay (unsigned long t);
 
 #ifdef _KERNEL
+#ifdef memset
+#undef memset
 #define memset oss_memset
+#endif
 extern void *oss_memset (void *t, int val, int l);
 #endif
 

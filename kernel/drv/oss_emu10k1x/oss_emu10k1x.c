@@ -5,7 +5,17 @@
  * some Dell machines. However it has nothing to do with the original
  * SB Live! design.
  */
-#define COPYING Copyright (C) Hannu Savolainen and Dev Mazumdar 2003. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 #include "oss_emu10k1x_cfg.h"
 #include "oss_pci.h"

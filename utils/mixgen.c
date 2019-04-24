@@ -1,4 +1,3 @@
-#define COPYING Copyright (C) Hannu Savolainen and Dev Mazumdar 2006. All rights reserved.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -659,7 +658,17 @@ main (int argc, char *argv[])
       if (corb_read (mixer, cad, 0, 0, GET_PARAMETER, HDA_VENDOR, &a, &b))
 	break;
   printf
-    ("#define COPYING Copyright (C) 4Front Technologies 2007. All rights reserved.\n");
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
   printf ("/* Codec index is %d */\n", cad);
   printf ("/* Codec vendor %04x:%04x */\n", a >> 16, a & 0xffff);

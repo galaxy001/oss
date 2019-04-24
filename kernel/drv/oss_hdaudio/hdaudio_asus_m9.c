@@ -2,7 +2,17 @@
  * Purpose: init handler for Asus m9.
  */
 
-#define COPYING Copyright (C) 2008 Paulo Matias <matias@dotbsd.org>. Licensed to 4Front Technologies.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 /* Codec index is 0 */
 /* Codec vendor 10ec:0260 */

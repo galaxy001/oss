@@ -7,7 +7,17 @@
  * device may also do mixer changes (cross fading, etc) by sending (or
  * playing back) control messages.
  */
-#define COPYING Copyright (C) Hannu Savolainen and Dev Mazumdar 2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 #include "oss_midimix_cfg.h"
 #include "midi_core.h"

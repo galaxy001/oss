@@ -2,7 +2,17 @@
  * Purpose: Definition file for the oss_userdev driver
  *
  */
-#define COPYING2 Copyright (C) Hannu Savolainen and Dev Mazumdar 2008. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 #define MAX_RATE 	192000
 #define MAX_CHANNELS	64
 #define SUPPORTED_FORMATS	(AFMT_S16_NE|AFMT_S32_NE)

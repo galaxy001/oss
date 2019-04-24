@@ -1,7 +1,17 @@
 /*
  * Purpose: Firmware download for Midiman MIDISport 1x1
  */
-#define COPYING50 Copyright (C) Hannu Savolainen and Dev Mazumdar 2000-2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 const struct setup_request midisport1x1_setupRequest[] = {
   {0x00, 0x05, 0x0002, 0x0000, 0x0000, 0x0000, ""},
   {0x40, 0xA0, 0x7F92, 0x0000, 0x0001, 0x0001, "\x01"},

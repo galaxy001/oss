@@ -4,7 +4,17 @@
  * Purpose: Definitions for S/PDIF (IEC958) control bit and mixer extension manager
  */
 
-#define COPYING3 Copyright (C) Hannu Savolainen and Dev Mazumdar 2002. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 typedef struct oss_spdif_driver spdif_driver_t;
 
 #define set_cbit(array, byte, bit, v) {array[byte] &= ~(1 << bit);array[byte] |= ((v&1)<<bit);}

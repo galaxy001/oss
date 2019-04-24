@@ -1,7 +1,17 @@
 /*
  * Purpose: Definitions for the Creative/Ensoniq AudioPCI driver
  */
-#define COPYING Copyright (C) Hannu Savolainen and Dev Mazumdar 1997-2007. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 /* CONCERT PCI-SIG defines */
 #define CONC_PCI_VENDID     0x1274U

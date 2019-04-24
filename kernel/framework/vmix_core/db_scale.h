@@ -1,7 +1,17 @@
 /*
  * Purpose: dB to linear conversion tables for vmix
  */
-#define COPYING6 Copyright (C) Hannu Savolainen and Dev Mazumdar 2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 /*
  * Attenuation table for dB->linear conversion. Indexed in steps of 0.5 dB.

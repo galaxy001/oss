@@ -15,7 +15,17 @@
  * the customer thiks the tech suport guy is doing something too dangerous he
  * can always hit ^C or ^Z and unplug the ethernet connector.
  */
-#define COPYING Copyright (C) Hannu Savolainen and Dev Mazumdar 2000-2008. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 #include <stdio.h>
 #include <sys/types.h>

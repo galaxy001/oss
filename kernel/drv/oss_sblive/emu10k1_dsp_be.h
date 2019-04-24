@@ -1,7 +1,17 @@
 /*
  * Purpose: DSP firmware file for Live! (big endian machines)
  */
-#define COPYING35 Copyright (C) Hannu Savolainen and Dev Mazumdar 1996-2005. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 static unsigned char emu10k1_dsp[] = {
   0x00, 0xe1, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x01, 0x96,
   0x00, 0x00, 0x00, 0x44,

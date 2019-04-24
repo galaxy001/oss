@@ -10,8 +10,12 @@ check_sysdep (conf_t * conf, struct utsname *un)
 static void
 add_kernel_flags (FILE * f)
 {
-# if defined(__x86_64__)
+#if defined(__x86_64__)
   fprintf (f,
-	     "CFLAGS += -O3 -fno-common  -mcmodel=kernel -mno-red-zone  -fno-asynchronous-unwind-tables -ffreestanding\n");
-# endif
+	     "CFLAGS += -O3 -DKLD_MODULE -fno-common  -mcmodel=kernel -mno-red-zone  -fno-asynchronous-unwind-tables -ffreestanding\n");
+#else
+  fprintf (f,
+	     "CFLAGS += -O3 -DKLD_MODULE\n");
+#endif
+
 }

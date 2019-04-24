@@ -4,7 +4,17 @@
  * This file will be included from the auto-generated drv_cfg.c files. Under
  * Solaris this file will be compiled in the development system.
  */
-#define COPYING3 Copyright (C) Hannu Savolainen and Dev Mazumdar 1996-2007. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 #include <sys/types.h>
 #include <sys/modctl.h>
 #include <sys/kmem.h>

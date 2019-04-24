@@ -1,7 +1,17 @@
 /*
  * Purpose: Definitions for the via8233 driver
  */
-#define COPYING2 Copyright (C) Hannu Savolainen and Dev Mazumdar 1996-2005. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 #define VIA_VENDOR_ID		0x1106
 #define VIA_8233_ID		0x3059
 #define VIA_8233A_ID		0x7059

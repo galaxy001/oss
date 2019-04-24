@@ -2,7 +2,17 @@
  * These routines are used to change the contects of various structures
  * stored inside the modules
  */
-#define COPYING3 Copyright (C) Hannu Savolainen and Dev Mazumdar 1996-2005. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 #if !defined(ELF64) && !defined(ELF32)
 #  if defined(sparc) || defined(__x86_64__)

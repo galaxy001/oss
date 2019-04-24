@@ -34,6 +34,9 @@ typedef int *ioctl_arg;
 #if LINUX_VERSION_CODE > KERNEL_VERSION(3,10,0)
 #include <linux/uidgid.h>
 #endif
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,11,0)
+#include <linux/cred.h>
+#endif
 #undef strlen
 #undef strcpy
 #define strlen oss_strlen
@@ -476,11 +479,15 @@ unsigned int
 oss_get_uid (void)
 {
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
+  return current->cred->uid.val;
+#else 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,14,0)
   return __kuid_val(current->cred->uid);
 #elif LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,29)
   return current->cred->uid;
 #else
   return current->uid;
+#endif
 #endif
   return 0;
 }

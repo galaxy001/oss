@@ -1,7 +1,17 @@
 /*
  * Purpose: Filter coefficient tables for GRC3
  */
-#define COPYING3 Copyright (C) Hannu Savolainen and Dev Mazumdar 1996-2005. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 static int32_t filter_data[16385] = {
   0, -2498, -5007, -7527, -10057, -12598, -15149, -17711, -20283, -22866,

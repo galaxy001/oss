@@ -10,7 +10,17 @@
  * macro the header files should use macro name like COPYING2..COPYING9.
  */
 
-#define COPYING2 Copyright (C) ACME Laboratories  2000-2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 /*
  * Each device instance should have a per-device data structure that contains

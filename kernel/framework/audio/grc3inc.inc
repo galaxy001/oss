@@ -3,7 +3,17 @@
  *
  * GRC library version 3.1
  */
-#define COPYING4 Copyright (C) George Yohng 2000-2002. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 static __inline__ int32_t SUFFIX (grc3_upsample_) (grc3state_t * grc,
 						   TYPEIN * src,

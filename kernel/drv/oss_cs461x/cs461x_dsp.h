@@ -1,7 +1,17 @@
 /*
  * Purpose: Firmware for cs461x/cs461x cards.
  */
-#define COPYING2 Copyright (C) Hannu Savolainen and Dev Mazumdar 1997-2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 struct cs461x_firmware_struct cs461x_firmware = {
   {{0x00000000, 0x00003000}, {0x00010000, 0x00003800},
    {0x00020000, 0x00007000}},

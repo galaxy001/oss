@@ -3,7 +3,17 @@
  *
  * This equalizer code is used by the SB Live/Audigy firmware.
  */
-#define COPYING31 Copyright (C) George Young, Hannu Savolainen and Dev Mazumdar 1996-2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 static const unsigned int eq_band1_data[][6] = {
   {0x0FCEBCE0, 0xE083F660, 0x1F7C09A0, 0x0FADB020, 0xF08392F0, 0x00000000},	/* 0 */
   {0x0FCF2D70, 0xE0834400, 0x1F7CBC00, 0x0FADF220, 0xF082E090, 0x00000000},	/* 1 */

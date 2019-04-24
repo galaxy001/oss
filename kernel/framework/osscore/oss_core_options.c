@@ -8,7 +8,17 @@
  * Each option variable must also be defined as extern in the proper header
  * file (of the subsystem that uses them) or in the source file that uses them.
  */
-#define COPYING Copyright (C) Hannu Savolainen and Dev Mazumdar 2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 #include <oss_config.h>
 

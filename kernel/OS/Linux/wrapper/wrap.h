@@ -6,7 +6,17 @@
  * modified in the target system because the precompiled binaries included
  * in the OSS installation package depend on it too.
  */
-#define COPYING12 Copyright (C) Hannu Savolainen and Dev Mazumdar 2000-2014. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 /*
  * Some integer types

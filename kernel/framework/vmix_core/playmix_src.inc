@@ -4,7 +4,17 @@
  * This file is almost the same than playmix.inc but uses simple
  * linear interpolation algorithm for sample rate conversion.
  */
-#define COPYING5 Copyright (C) Hannu Savolainen and Dev Mazumdar 2006. All rights reserved.
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 /*
  * Mixing function for virtual devices

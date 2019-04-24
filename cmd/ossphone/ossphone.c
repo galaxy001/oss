@@ -2,7 +2,17 @@
  * Purpose: Utility to make phone calls using Open Sound System modem support.
  */
 
-#define COPYING Copyright (C) 2008 Paulo Matias. Licensed to 4Front Technologies
+/*
+ *
+ * This file is part of Open Sound System.
+ *
+ * Copyright (C) 4Front Technologies 1996-2008.
+ *
+ * This this source file is released under GPL v2 license (no other versions).
+ * See the COPYING file included in the main directory of this source
+ * distribution for the license terms and conditions.
+ *
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
