@@ -952,7 +952,7 @@ printf("Symlink %s -> %s\n", source, target);
 #if defined(__SCO_VERSION__)
       fprintf (f, "CFLAGS=-O -D_KERNEL -D_DDI=8\n");
 #else
-      fprintf (f, "CFLAGS += -D_KERNEL\n");
+      fprintf (f, "CFLAGS += -D_KERNEL -fno-pic -fno-PIE\n");
 #endif
 #ifdef HAVE_KERNEL_FLAGS
       add_kernel_flags (f);
