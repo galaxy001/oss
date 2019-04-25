@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 if test -f /etc/oss.conf
 then
   . /etc/oss.conf
@@ -34,13 +34,16 @@ echo "Open Sound System starting" `date` > $LOG
 echo "OSS version: " `cat $OSSLIBDIR/version.dat` >> $LOG 2>&1
 KERNEL_VERSION=`uname -r`
 echo "Kernel version: " $KERNEL_VERSION >> $LOG
-KERNEL_VERMAGIC=`/usr/sbin/ossvermagic -z -s`
+# Fix for ossvermagic for kernels after 2.6,
+# (on 3.8, 3.9 and 3.10 kernels, this takes 2 minutes and returns nothing).
+#KERNEL_VERMAGIC=`/usr/bin/ossvermagic -z -s`
+KERNEL_VERMAGIC=""
 echo "Kernel vermagic: " $KERNEL_VERMAGIC >> $LOG 2>&1
 
 if ! test -f $OSSLIBDIR/etc/installed_drivers
 then
 	echo No $OSSLIBDIR/etc/installed_drivers - running ossdetect >> $LOG
-	/usr/sbin/ossdetect -v >> $LOG
+	/usr/bin/ossdetect -v >> $LOG
 fi
 
 if ! test -f $OSSLIBDIR/etc/installed_drivers
@@ -52,23 +55,23 @@ fi
 
 UBUNTU_OVERRIDE=
 POS_UBUNTU_OVERRIDE=
-if  test -f /lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko
+if  test -f /usr/lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko
 then
 # Verify that vermagic of OSS matches the kernel vermagic
 
-	OSS_VERMAGIC=`/usr/sbin/ossvermagic -z -q /lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko`
+	OSS_VERMAGIC=`/usr/bin/ossvermagic -z -q /usr/lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko`
 
 	if ! test "$OSS_VERMAGIC " = "$KERNEL_VERMAGIC "
 	then
 		OSS_ORIG_VERMAGIC="$OSS_VERMAGIC"
-		OSS_VERMAGIC=`/usr/sbin/ossvermagic -z -u -q /lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko`
+		OSS_VERMAGIC=`/usr/bin/ossvermagic -z -u -q /usr/lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko`
 		POS_UBUNTU_OVERRIDE=1
 	fi
 
 	if ! test "$OSS_VERMAGIC " = "$KERNEL_VERMAGIC "
 	then
 		echo "Old    vermagic: " $OSS_VERMAGIC >> $LOG
-		rm -rf /lib/modules/$KERNEL_VERSION/kernel/oss
+		rm -rf /usr/lib/modules/$KERNEL_VERSION/kernel/oss
 		echo Previous OSS modules were for a different kernel version - removed
 		echo Previous OSS modules were for a different kernel version - removed >> $LOG
 	elif test "$POS_UBUNTU_OVERRIDE " = "1 "
@@ -78,7 +81,7 @@ then
 	fi
 fi
 
-if ! test -f /lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko
+if ! test -f /usr/lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko
 then
 	NOTIFY=1
 	echo Relinking OSS kernel modules for \"$KERNEL_VERMAGIC\"
@@ -101,15 +104,15 @@ then
 	rm -f /var/log/relink.log
 fi
 
-if ! test -f /lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko
+if ! test -f /usr/lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko
 then
 	echo
-	echo No /lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko module >> $LOG
-	echo No /lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko module in the system
+	echo No /usr/lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko module >> $LOG
+	echo No /usr/lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko module in the system
 	exit 30
 fi
 
-OSS_VERMAGIC=`/usr/sbin/ossvermagic -z $UBUNTU_OVERRIDE -q /lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko`
+OSS_VERMAGIC=`/usr/bin/ossvermagic -z $UBUNTU_OVERRIDE -q /usr/lib/modules/$KERNEL_VERSION/kernel/oss/osscore.ko`
 echo "OSS    vermagic: " $OSS_VERMAGIC >> $LOG
 
 if ! test "$OSS_VERMAGIC " = "$KERNEL_VERMAGIC "
@@ -131,7 +134,7 @@ fi
 
 if test -f $OSSLIBDIR/etc/license.asc
 then
-   /usr/sbin/ossdetect -l >> $LOG
+   /usr/bin/ossdetect -l >> $LOG
 fi
 
 if test -d /proc/asound || grep -q '^ *14 ' < /proc/devices
@@ -161,7 +164,7 @@ then
   OPTIONS="`grep -v -h '^#' $OSSLIBDIR/conf/osscore.conf|sed 's/[ \t]//g'`"
 fi
 
-if ! /sbin/modprobe osscore $OPTIONS
+if ! /usr/bin/modprobe osscore $OPTIONS
 then
 	echo Loading the osscore module failed
 	echo Loading the osscore module failed >> $LOG
@@ -180,7 +183,7 @@ do
 	  OPTIONS="`grep -v -h '^#' $OSSLIBDIR/conf/$n.conf|sed 's/[ \t]//g'`"
 	fi
 
-	if ! /sbin/modprobe $n $OPTIONS
+	if ! /usr/bin/modprobe $n $OPTIONS
 	then
 		echo Loading module $n failed '-' ignored >> $LOG
 		echo Loading module $n failed '-' ignored
@@ -200,7 +203,7 @@ then
 	exit 70
 fi
 
-/usr/sbin/ossdetect -d >> $LOG 2>&1
+/usr/bin/ossdetect -d >> $LOG 2>&1
 
 # Restore the legacy device links. This is necessary because in some
 # Linux distributions they get lost when the system is booted.
@@ -209,7 +212,7 @@ then
 	sh $OSSLIBDIR/etc/legacy_devices >> $LOG 2>&1
 fi
 
-/usr/sbin/ossdevlinks -v >> $LOG 2>&1
+/usr/bin/ossdevlinks -v >> $LOG 2>&1
 
 echo "+++ ossinfo -v3 +++" >> $LOG
 ossinfo -v3 >> $LOG 2>&1
@@ -228,7 +231,7 @@ cat /proc/opensound/devfiles >> $LOG 2>&1
 ls -l /dev/dsp* /dev/mixer* /dev/midi* /dev/oss/*/* >> $LOG 2>&1
 
 echo >> $LOG
-/usr/sbin/savemixer -L -v >> $LOG 2>&1
+/usr/bin/savemixer -L -v >> $LOG 2>&1
 
 # Setup ALSA emulation
 
@@ -236,7 +239,7 @@ if test -f $OSSLIBDIR/.cuckoo_installed
 then
 # Use kernel based ALSA compatibility
 
-  if ! test -f /lib/modules/$KERNEL_VERSION/kernel/sound/core/snd.ko
+  if ! test -f /usr/lib/modules/$KERNEL_VERSION/kernel/sound/core/snd.ko
   then
 	sh $OSSLIBDIR/scripts/setup-alsa.sh >> $LOG 2>&1
   	depmod -a
