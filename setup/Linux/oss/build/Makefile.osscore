@@ -5,6 +5,7 @@ EXTRA_CFLAGS += -I${OSSLIBDIR}/include/internals -I${OSSLIBDIR}/include/sys
 ifneq ($(KERNELRELEASE),)
 
 	obj-m := osscore.o
+	osscore-y := osscore_wrapper.o osscore_mainline.o
 
 else
 

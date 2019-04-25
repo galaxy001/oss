@@ -18,8 +18,6 @@ else
   fi
 fi
 
-rm -f /etc/init.d/oss
-
 if ! test -d /lib/modules/`uname -r`/kernel/sound
 then
    if test -f /lib/modules/`uname -r`/sound-preoss.tar.bz2

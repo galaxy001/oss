@@ -71,8 +71,6 @@ find_vermagic (char *fname)
   if (!ok)
     ok = ELF_LOAD_SYMTAB (fname, "__mod_vermagic", sym_callback);
   if (!ok)
-    ok = ELF_LOAD_SYMTAB (fname, "__UNIQUE_ID_vermagic0", sym_callback);
-  if (!ok)
     ELF_LOAD_SYMTAB (fname, "__oss_compile_vermagic", sym_callback);
 }
 
